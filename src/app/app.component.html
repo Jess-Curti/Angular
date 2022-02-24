@@ -1,3 +1,7 @@
 <!-- não acontece nada colocar conteudo entre as tags -->
 <!-- Funciona colocar lógica (if) -->
+
+<!-- se o auth for true, essa linha é carregada, senao não -->
+<app-menu *ngIf="auth.logado()"></app-menu>  
 <router-outlet></router-outlet>
+<app-rodape *ngIf="auth.logado()"></app-rodape>

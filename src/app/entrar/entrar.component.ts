@@ -9,6 +9,7 @@ import { AuthService } from '../service/auth.service';
   templateUrl: './entrar.component.html',
   styleUrls: ['./entrar.component.css']
 })
+
 export class EntrarComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin()
@@ -23,25 +24,24 @@ export class EntrarComponent implements OnInit {
   }
 
   entrar(){
-    this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin)=>{
-      this.usuarioLogin = resp
+    this.auth.entrar(this.usuarioLogin).subscribe({
+      next: (resp: UsuarioLogin) => {
+        this.usuarioLogin = resp
       
       environment.token = this.usuarioLogin.token
       environment.nome = this.usuarioLogin.nome
       environment.foto = this.usuarioLogin.foto
       environment.id = this.usuarioLogin.id
+      environment.tipo = this.usuarioLogin.tipo
+        
+        this.router.navigate(['/inicio'])
+      },
 
-      console.log(environment.token)
-      console.log(environment.nome)
-      console.log(environment.foto)
-      console.log(environment.id)
-
-      this.router.navigate(['/inicio'])
-    }, erro =>{
-      if(erro.status == 500){
+      error: erro => {
+      if(erro.status == 401){
         alert("Usuário ou senha estão incorretos!")
+      }
       }
     })
   }
-
 }

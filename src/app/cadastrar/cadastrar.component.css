@@ -5,3 +5,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#bgForm {
+    background: linear-gradient(to top right, #656c57 25%, #fa95ab 100%);
+    padding: 75px 100px;
+    border-radius: 10px;
+}

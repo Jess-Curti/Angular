@@ -1,3 +1,10 @@
+#bgForm {
+    /* background-color: #52796F; */
+    background: linear-gradient(to top right, #656c57 25%, #fa95ab 100%);
+    padding: 75px 100px;
+    border-radius: 10px;
+}
+
 #img-bg {
     background-image: url("../../assets/images/Login.jpg");
     min-height: 935px;

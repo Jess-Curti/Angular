@@ -1,11 +1,5 @@
 .container-fluid {
-    background-color: #FFF7EC;
+    background: linear-gradient(to bottom, #656c57 15%, #fa95ab 100%);
+
 }
 
-.fs-60 {
-    color: #FD779C;
-}
-
-.fs-18 {
-    color: #7D8648;
-}

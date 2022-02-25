@@ -10,15 +10,17 @@ import { AuthService } from '../service/auth.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private route: Router, private auth: AuthService) { }
+  constructor(
+    private route: Router, private auth: AuthService) { }
 
   ngOnInit() {
     window.scroll(0,0);
 
-    // if(environment.token ==''){
-    //   this.route.navigate(['entrar']);
-    //   alert('Você precisa estar logado para ver o feed... 😎')
-    // }
+
+    if(environment.token ==''){
+      this.route.navigate(['/entrar']);
+      alert('Sua seção expirou, faça login novamente para ver o feed... 😎')
+    }
   }
 
 }

@@ -33,15 +33,17 @@ export class EntrarComponent implements OnInit {
       environment.foto = this.usuarioLogin.foto
       environment.id = this.usuarioLogin.id
       environment.tipo = this.usuarioLogin.tipo
+
+      console.log(environment)
         
         this.router.navigate(['/inicio'])
       },
 
       error: erro => {
-      if(erro.status == 401){
-        alert("Usuário ou senha estão incorretos!")
-      }
-      }
+        if(erro.status == 401){
+          alert("Usuário e/ou senha estão incorretos!")
+      }}
     })
   }
 }
+
